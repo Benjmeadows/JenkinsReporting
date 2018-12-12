@@ -94,7 +94,7 @@ public class JenkinsReporting {
 	private void populateJobsTable() throws IOException {
 		int tableKey = 1;
 		for (Map.Entry<String, Job> job : jobs.entrySet()) {
-			if(job.getValue().getName()!="JenkinsReporting") {
+			if(!job.getValue().getName().toString().equals("JenkinsReporting")) {
 			JobWithDetails details = jenkins.getJob(job.getKey());
 			jobsTable.put(tableKey, "Job Name", job.getValue().getName());
 			jobsTable.put(tableKey, "Job Details", details);
@@ -187,8 +187,10 @@ public class JenkinsReporting {
 		rowsTableForJobsTable = new ArrayList<Integer>();
 		for (Map.Entry<String, Job> job : jobs.entrySet()) {
 			//Do nothing with the Job Object for now; rewrite later
+			if(!job.getValue().getName().toString().equals("JenkinsReporting")) {
 			rowsTableForJobsTable.add(tableSeed);
 			tableSeed++;
+			}
 		}
 	}
 	
