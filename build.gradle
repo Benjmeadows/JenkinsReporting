@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile group: 'org.apache.poi', name: 'poi', version: '3.9'
+	compile group: 'org.apache.httpcomponents', name: 'httpclient', version:'4.5'
+	compile 'com.offbytwo.jenkins:jenkins-client:0.3.8'
+	compile 'com.google.guava:guava:27.0.1-jre'
+	compile group: 'org.apache.poi', name: 'poi', version: '4.0.1'
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
+	compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
+	testImplementation group: 'junit', name: 'junit', version:'4.12'
+}
