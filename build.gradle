@@ -15,3 +15,9 @@ dependencies {
 	compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
 	testImplementation group: 'junit', name: 'junit', version:'4.12'
 }
+
+test{
+	systemProperty 'qa.jenkins.username', System.getProperty('qa.jenkins.username')
+	systemProperty 'qa.jenkins.password', System.getProperty('qa.jenkins.password')
+	systemProperty 'qa.jenkins.dns', System.getProperty('qa.jenkins.dns')
+}

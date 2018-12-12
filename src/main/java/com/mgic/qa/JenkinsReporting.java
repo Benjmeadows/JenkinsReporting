@@ -1,8 +1,10 @@
 package com.mgic.qa;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -72,12 +74,14 @@ public class JenkinsReporting {
 		this.populateJobsTable();
 	}
 	
-	private void establishJenkinsConnection() throws URISyntaxException {
+	private void establishJenkinsConnection() throws URISyntaxException, UnsupportedEncodingException {
+		//System.out.println("URL" + jenkinsUrl);
 		jenkins = new JenkinsServer(new URI(jenkinsUrl), username, password);
 	}
 	
 	private void getConfigurationProperties() {
 		jenkinsUrl = System.getProperty("qa.jenkins.dns", "");
+		System.out.println(jenkinsUrl);
 		username = System.getProperty("qa.jenkins.username", "");
 		password = System.getProperty("qa.jenkins.password", "");
 		excludeJobs = System.getProperty("qa.jenkins.excludeJobs", "");		
